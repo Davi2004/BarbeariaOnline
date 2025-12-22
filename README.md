@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+<h1 align="center">💈 Barbearia Online 💈</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  Projeto desenvolvido como parte da minha evolução em <strong>Análise e Desenvolvimento de Sistemas</strong>.<br>
+  A aplicação simula um sistema real de barbearia, com <strong>agendamento online</strong>, <strong>painel administrativo</strong> e integração com banco de dados em tempo real.
+</p>
 
-## Available Scripts
+<p align="center">
+  <a href="#-projeto">📁 Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-funcionalidades">✨ Funcionalidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias">🧩 Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-executar">🚀 Como executar</a>
+</p>
 
-In the project directory, you can run:
+<br>
 
-### `npm start`
+<p align="center">
+  <!-- Caso queira, depois você pode trocar por um print real do projeto -->
+  <img alt="Capa do projeto Barbearia Online" src="./public/Projeto BarbeariaOnline.png" width="100%">
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 💻 Projeto
 
-### `npm test`
+O **Barbearia Online** é uma aplicação web que permite aos clientes:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Agendar horários de forma prática
+- Escolher serviços e barbeiros
+- Visualizar produtos recomendados
 
-### `npm run build`
+Além disso, o sistema conta com um **painel administrativo**, onde o administrador pode:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Gerenciar serviços e preços
+- Gerenciar barbeiros
+- Visualizar, cancelar e controlar agendamentos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O projeto foi pensado para ser **responsivo**, oferecendo uma boa experiência tanto em **desktop quanto em dispositivos móveis**.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🔗 **Acesse o projeto online:**
+👉 https://barbearia-online-nu.vercel.app
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## ✨ Funcionalidades
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 👤 Área do Cliente
+- Login e autenticação
+- Seleção de serviços e barbeiros
+- Agendamento de horários
+- Visualização de agendamentos
+- Visualização de produtos
+- Interface responsiva (mobile e desktop)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🔐 Área Administrativa
+- Painel exclusivo para administradores
+- Cadastro, edição e remoção de serviços
+- Cadastro e remoção de barbeiros
+- Visualização de agendamentos
+- Controle de status (ativo / cancelado)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🧠 Tecnologias
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ⚛️ **React**
+- 🧭 **React Router DOM**
+- 🧩 **Context API**
+- 🎨 **CSS Modules**
+- 🔔 **React Toastify**
+- 🧠 **Supabase** (Auth + Banco de Dados)
+- 📦 **Lucide Icons**
+- 🌐 **Vercel** (Deploy)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
