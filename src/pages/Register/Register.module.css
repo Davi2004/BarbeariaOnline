@@ -1,0 +1,85 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card {
+    background-color: var(--bg-light);
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 2px solid var(--border-dark);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.title {
+    color: var(--text-gold);
+    text-shadow: 2px 2px 2px #000;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input {
+    height: 40px;
+    border: 2px solid var(--border-dark);
+    border-radius: var(--radius-md);
+    text-align: center;
+    outline: none;
+}
+
+.input:focus {
+    outline: 2px solid var(--primary);
+}
+
+.button {
+    background-color: var(--primary);
+    color: #000;
+    border: 2px solid var(--border-dark);
+    border-radius: var(--radius-md);
+
+    height: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: var(--primary-hover);
+}
+
+.textLink {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.links {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.links:hover {
+    text-decoration: underline;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 480px) {
+    .card {
+        padding: 16px;
+    }
+
+    .input, .button {
+        height: 44px;
+    }
+}

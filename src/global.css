@@ -1,0 +1,22 @@
+@import './styles/variables.css';
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: sans-serif;
+   background: radial-gradient(circle, var(--bg-dark-light) 20%, var(--bg-blackDark) 80%);
+}
+
+/* PREVINIR ZOOM DESNECESSÁRIO DO IOS AO FOCAR INPUTS. */
+
+@supports (-webkit-touch-callout: none) {
+   input,
+   textarea,
+   select {
+      font-size: 16px;
+   }
+}

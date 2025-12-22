@@ -1,0 +1,17 @@
+:root {
+  --bg-blackDark: #080808;
+  --bg-dark: #171616;
+  --bg-dark-light: #393434;
+  --bg-light: #667F85;
+
+  --text-light: #F5F5F5;
+  --text-gold: #EFB810;
+
+  --primary: #D0D707;
+  --primary-hover: #A4FA2B;
+
+  --border-dark: #000;
+
+  --radius-md: 10px;
+  --radius-lg: 15px;
+}

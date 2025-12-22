@@ -1,0 +1,39 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo {
+    width: 500px;
+}
+
+.text {
+    color: var(--text-light);
+    text-shadow: 2px 2px 2px #000;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.ContainerButtons {
+    display: flex;
+    gap: 20px;
+}
+
+.button {
+    background-color: var(--primary);
+    color: #000;
+    border: 2px solid var(--border-dark);
+    border-radius: var(--radius-md);
+    padding: 10px 30px;
+    
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: var(--primary-hover);
+}

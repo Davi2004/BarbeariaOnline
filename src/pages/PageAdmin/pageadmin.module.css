@@ -1,0 +1,132 @@
+.dashboard {
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.039);
+    color: #fff;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 25px;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.card h1 {
+    text-align: center;
+    text-shadow: 2px 2px 2px #000;
+    margin-bottom: 24px;
+    font-size: 1.6rem;
+}
+
+@media (max-width: 600px) {
+    .card h1 {
+        font-size: 1.4rem;
+    }
+}
+
+.tableWrapper {
+    overflow-x: auto;
+}
+
+.tableAdmin {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.theadAdmin {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+.borderAdmin {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.iconDelete {
+    transition: transform 0.2s;
+}
+
+.iconDelete:hover {
+    transform: scale(1.10);
+}
+
+/* Mobile */
+
+.listMobile {
+    display: grid;
+    gap: 20px;
+}
+
+.cardAgendamento {
+    position: relative;
+    background: rgba(255,255,255,0.06);
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.cardAgendamento p {
+    margin-bottom: 6px;
+}
+
+.iconDeleteMobile {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: transform 0.2s;
+}
+
+.iconDeleteMobile:hover {
+    transform: scale(1.08);
+}
+
+/* ESCONDE TABELA NO MOBILE */
+.tableWrapper {
+    display: none;
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+    .tableWrapper {
+        display: block;
+    }
+
+    .listMobile {
+        display: none;
+    }
+}
+
+.statusAgendado {
+    color: #2196f3;
+    font-weight: bold;
+}
+
+.statusConcluido {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.statusCancelado {
+    color: #f44336;
+    font-weight: bold;
+    text-decoration: line-through;
+}
+
+.emptyMessage {
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    font-size: 1.5rem;
+}

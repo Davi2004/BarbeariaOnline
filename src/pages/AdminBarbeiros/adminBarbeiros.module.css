@@ -1,0 +1,58 @@
+.container {
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.039);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 25px;
+    color: #fff;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.4);
+
+    width: 100%;
+    max-width: 900px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input {
+    height: 48px; /* força altura no iOS */
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #111;
+    color: #fff;
+    font-size: 1rem;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.input:focus {
+    outline: 2px solid #1e90ff;
+}
+
+.form button {
+    padding: 14px;
+    background: #1e90ff;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.form button:hover {
+    opacity: 0.9;
+}

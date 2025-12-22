@@ -1,0 +1,97 @@
+.header {
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-dark);
+  border-bottom: 2px solid var(--border-dark);
+  border-radius: 12px;
+}
+
+.logo {
+  width: 90px;
+}
+
+.title {
+  color: var(--text-gold);
+  text-shadow: 2px 2px 2px #000;
+  font-size: 1.2rem;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-dark);
+  background-color: var(--primary);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+}
+
+.logout {
+  background-color: #b22222;
+}
+
+.logout:hover {
+  background-color: #8b0000;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 70px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .button {
+    height: 30px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .logo {
+    align-self: center;
+    width: 70px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .actions {
+    gap: 15px;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 42px;
+    font-size: 0.80rem;
+  }
+}
