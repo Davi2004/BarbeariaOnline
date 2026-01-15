@@ -137,10 +137,11 @@ const Dashboard = () => {
       // Verificar se já existe um agendamento no mesmo barbeiro + dia + hora
       const { data: existe, error: checkError } = await supabase
         .from("agendamentos")
-        .select("*")
+        .select("id")
         .eq("barbeiro_id", formData.barbeiro)
         .eq("data", formData.data)
         .eq("hora", formData.hora)
+        .neq("status", "cancelado")
         .maybeSingle();
 
       if (checkError) {
