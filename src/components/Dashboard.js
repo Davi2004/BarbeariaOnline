@@ -82,10 +82,6 @@ const Dashboard = () => {
           .select("*")
         ;
 
-        if(!user.is_admin) {
-          query = query.neq("status", "cancelado");
-        }
-
         const { data, error } = await query;
 
         if (error) throw error;
@@ -203,17 +199,18 @@ const Dashboard = () => {
       .eq("id", id);
 
     if (error) {
+      console.log("ERRO SUPABASE:", error);
       toast.error("Erro ao cancelar agendamento.");
       return;
     }
 
     toast.success("Agendamento cancelado com sucesso!");
 
-    const { data } = await supabase
-      .from("agendamentos")
-      .select("*")
-    
-    setAgendamentos(data ?? []);
+    setAgendamentos((prev) =>
+      prev.map((ag) =>
+        ag.id === id ? { ...ag, status: "cancelado" } : ag
+      )
+    );
   };
 
   return (
@@ -356,7 +353,6 @@ const Dashboard = () => {
                     </td>
                     <td>
                       {(agendamento.cliente_id === user.id || user?.is_admin) &&
-                        agendamento.status !== "cancelado" &&
                         getStatusAgendamento(agendamento) === "Agendado" && (
                           <XCircle
                             className={styles.iconDelete}
