@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { Eye, EyeOff } from 'lucide-react'
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import styles from '../pages/Login/Login.module.css'
@@ -7,6 +8,7 @@ const LoginForm = () => {
   const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -27,7 +29,23 @@ const LoginForm = () => {
     <form onSubmit={handleLogin} className={styles.form}>
       
       <input type="email" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} required className={styles.input} />
-      <input type="password" placeholder="Senha" onChange={(e) => setPassword(e.target.value)} required className={styles.input} />
+      
+      <div className={styles.passwordWrapper}>
+        <input
+          type={showPassword ? "text" : "password"}
+          placeholder="Senha"
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className={styles.input}
+        />
+        <button
+          type="button"
+          onClick={ () => setShowPassword(!showPassword) }
+          className={styles.togglePassword}
+        >
+          { showPassword ? <EyeOff size={20} /> : <Eye size={20} /> }
+        </button>
+      </div>
 
       <Link className={styles.links} to="/redefinirSenha"> 
         Esqueceu a senha?
