@@ -9,18 +9,36 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    setLoading(true);
+    setError(false);
+    
     const successLogin = await login(email, password);
   
     if (successLogin) {
+
+      setEmail("");
+      setPassword("");
+      
       if (successLogin.is_admin) {
         navigate("/pageadmin");
       } else {
         navigate("/homepage")
       }
+      
+    } else {
+      setError(true);
+      setEmail("");
+      setPassword("");
+      setLoading(false);
     }
   };
 
@@ -28,15 +46,23 @@ const LoginForm = () => {
 
     <form onSubmit={handleLogin} className={styles.form}>
       
-      <input type="email" placeholder="E-mail" onChange={(e) => setEmail(e.target.value)} required className={styles.input} />
+      <input 
+        type="email" 
+        placeholder="E-mail" 
+        value={email} 
+        onChange={(e) => setEmail(e.target.value)} 
+        required 
+        className={`${styles.input} ${error ? styles.inputError : ""}`} 
+      />
       
       <div className={styles.passwordWrapper}>
         <input
           type={showPassword ? "text" : "password"}
           placeholder="Senha"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className={styles.input}
+          className={`${styles.input} ${error ? styles.inputError : ""}`}
         />
         <button
           type="button"
@@ -51,7 +77,13 @@ const LoginForm = () => {
         Esqueceu a senha?
       </Link> 
       
-      <button className={styles.button} type="submit">Entrar</button>
+      <button 
+        className={styles.button} 
+        type="submit"
+        disabled={loading}
+      >
+        {loading ? "Entrando..." : "Entrar"}
+      </button>
       
       <span className={styles.textlink}>
          

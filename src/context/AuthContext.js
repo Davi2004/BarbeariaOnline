@@ -14,18 +14,16 @@ export const AuthProvider = ({ children }) => {
       .eq("id", sessionUser.id)
       .single();
 
-    if (error) {
-      console.error("Erro ao buscar perfil:", error);
-      return {
-        is_admin: false,
-        name: sessionUser.user_metadata?.nome
-      };
+    if (error || !data) {
+      console.log("Usuário autenticado mas NÃO cadastrado na tabela usuarios");
+      return null; 
     }
 
     return {
       is_admin: data.is_admin,
       name: data.nome
     };
+
   };
 
   // Carregar usuário autenticado ao abrir o site
@@ -35,6 +33,12 @@ export const AuthProvider = ({ children }) => {
 
       if (session?.user) {
         const profile = await getUserProfile(session.user);
+
+        if (!profile) {
+          await supabase.auth.signOut();
+          setUser(null);
+          return;
+        }
 
         const userData = {
           id: session.user.id,
@@ -57,6 +61,13 @@ export const AuthProvider = ({ children }) => {
         (async () => {
           const profile = await getUserProfile(session.user);
 
+          // 🚨 BLOQUEIO IGUAL AO LOGIN
+          if (!profile) {
+            await supabase.auth.signOut();
+            setUser(null);
+            return;
+          }
+
           setUser({
             id: session.user.id,
             email: session.user.email,
@@ -65,6 +76,7 @@ export const AuthProvider = ({ children }) => {
           });
           
         })();
+
       } else {
         setUser(null);
       }
@@ -90,6 +102,13 @@ export const AuthProvider = ({ children }) => {
       }
 
       const profile = await getUserProfile(data.user);
+
+      // 🚨 BLOQUEIO AQUI
+      if (!profile) {
+        await supabase.auth.signOut(); // desloga do Auth
+        toast.error("Seu usuário não tem acesso ao sistema. Fale com o administrador.");
+        return false;
+      }
       
       const userData = {
         id: data.user.id,

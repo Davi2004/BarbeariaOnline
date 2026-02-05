@@ -101,6 +101,9 @@ const Dashboard = () => {
     return;
   }
 
+  // 🔒 Impede renderização enquanto verifica usuário
+  if (!user) return null;
+
   // Função para capturar as mudanças no formulário
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -218,7 +221,7 @@ const Dashboard = () => {
     <main className={styles.dashboard}>
       
       <Header 
-        title={`Seja bem-vindo, ${user.name}`}
+        title={`Seja bem-vindo, ${user?.name}`}
         showProdutos={true}
         showLogout={true}
       />

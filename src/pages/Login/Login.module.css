@@ -57,6 +57,11 @@
     background-color: var(--primary-hover);
 }
 
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .links {
     color: #000;
     text-decoration: none;
@@ -130,4 +135,9 @@
     .textlink {
         gap: 5px;
     }
+}
+
+.inputError {
+  border: 2px solid #ff4d4f;
+  background-color: #fff1f0;
 }
