@@ -63,7 +63,7 @@
 }
 
 .links {
-    color: #000;
+    color: #EFF800;
     text-decoration: none;
     font-weight: bold;
 }
@@ -73,6 +73,7 @@
 }
 
 .textlink {
+    color: #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
