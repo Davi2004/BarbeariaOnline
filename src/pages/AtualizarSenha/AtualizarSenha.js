@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { supabase } from "../../lib/supabase";
@@ -12,6 +12,19 @@ const AtualizarSenha = () => {
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    const setSession = async () => {
+      const { error } = await supabase.auth.getSessionFromUrl({ storeSession: true });
+
+      if (error) {
+        toast.error("Link inválido ou expirado.");
+        navigate("/login");
+      }
+    };
+
+    setSession();
+  }, [navigate]);
+  
   const handleUpdatePassword = async (e) => {
     e.preventDefault();
 
