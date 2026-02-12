@@ -24,7 +24,7 @@ const ResetSenha = () => {
         return;
       }
 
-      toast.success("Um email foi enviado com instruções para redefinir sua senha.");
+      toast.success("Se o e-mail estiver cadastrado, você receberá instruções para redefinir sua senha.");
       setEmail("");
     } catch (error) {
       console.log(error)

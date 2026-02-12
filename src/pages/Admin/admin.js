@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { supabase } from "../../lib/supabase";
 import { Trash2, Pencil, Check, X } from "lucide-react";
 import Header from "../../components/Header/header";
 import { toast } from "react-toastify";
 import styles from "./admin.module.css";
+import { AuthContext } from "../../context/AuthContext";
 
 const Admin = () => {
   const [servicos, setServicos] = useState([]);
@@ -14,9 +15,19 @@ const Admin = () => {
   const [editNome, setEditNome] = useState("")
   const [editPreco, setEditPreco] = useState("")
 
+  const inputRef = useRef(null);
+  const { user } = useContext(AuthContext);
+
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (editBarbeiroId !== null || editServicoId !== null) {
+      inputRef.current?.focus();
+    }
+  }, [editBarbeiroId, editServicoId]);
+
 
   async function fetchData() {
     const { data: servicosData } = await supabase
@@ -75,7 +86,7 @@ const Admin = () => {
     );
 
     setEditBarbeiroId(null);
-}
+  }
 
   async function handleUpdateServico(id) {
     const { error } = await supabase
@@ -138,6 +149,7 @@ const Admin = () => {
                             value={editNome}
                             onChange={e => setEditNome(e.target.value)}
                             className={styles.input}
+                            ref={inputRef}
                           />
 
                           <div className={styles.icons}>
@@ -154,16 +166,17 @@ const Admin = () => {
                       ) : (
                         <>
                           <span>{barbeiro.nome}</span>
-
                           <div className={styles.icons}>
-                            <Pencil
-                              onClick={() => {
-                                setEditBarbeiroId(barbeiro.id)
-                                setEditNome(barbeiro.nome)
-                              }}
-                              style={{ cursor: "pointer", color: "#5555f0" }}
-                              className={styles.iconDelete}
-                            />
+                            {user?.is_admin && (
+                              <Pencil
+                                onClick={() => {
+                                  setEditBarbeiroId(barbeiro.id)
+                                  setEditNome(barbeiro.nome)
+                                }}
+                                style={{ cursor: "pointer", color: "#5555f0" }}
+                                className={styles.iconDelete}
+                              />
+                            )}
                             
                             <Trash2
                               className={styles.iconDelete}
@@ -203,6 +216,7 @@ const Admin = () => {
                             value={editNome}
                             onChange={e => setEditNome(e.target.value)}
                             placeholder="Nome"
+                            ref={inputRef}
                           />
 
                           <input
@@ -228,14 +242,18 @@ const Admin = () => {
                         <>
                           <span>{servico.nome} — R$ {servico.preco.toFixed(2)}</span>
                           <div className={styles.icons}>
-                            <Pencil
-                              onClick={() => {
-                                setEditServicoId(servico.id);
-                                setEditNome(servico.nome);
-                                setEditPreco(servico.preco);
-                              }}
-                              style={{ cursor: "pointer", color: "#5555f0" }}
-                            />
+                            {user?.is_admin && (
+                              <Pencil
+                                onClick={() => {
+                                  setEditServicoId(servico.id);
+                                  setEditNome(servico.nome);
+                                  setEditPreco(servico.preco);
+                                }}
+                                style={{ cursor: "pointer", color: "#5555f0" }}
+                                className={styles.iconDelete}
+                              />
+                            )}
+                            
                             <Trash2
                               className={styles.iconDelete}
                               onClick={() => handleDeleteServico(servico.id)}
